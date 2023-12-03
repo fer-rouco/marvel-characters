@@ -1,6 +1,6 @@
 import { Component, WritableSignal, signal } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { MarvelApiResponse, MarvelCharacter, MarvelItemsContainer, MarvelUrl } from '../../model/character-interfaces';
+import { MarvelApiResponse, MarvelCharacter, MarvelItemsContainer, MarvelThumbnail, MarvelUrl } from '../../model/character-interfaces';
 import { CharactersService } from '../../services/characters.service';
 import { map, mergeMap, tap } from 'rxjs';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -23,8 +23,9 @@ enum LinkEnum {
   styleUrl: './character.component.scss'
 })
 export class CharacterComponent {
-  public character: WritableSignal<MarvelCharacter | undefined> = signal(undefined);
   public title: WritableSignal<string> = signal('');
+  public character: WritableSignal<MarvelCharacter | undefined> = signal(undefined);
+  public marvelThumbnail: WritableSignal<MarvelThumbnail | undefined> = signal(undefined);
   public itemsContainer: WritableSignal<MarvelItemsContainerWithTitle[]> = signal([]);
   public marvelUrls: WritableSignal<MarvelUrl[]> = signal([]);
 
@@ -49,6 +50,7 @@ export class CharacterComponent {
             { title: "Series", container: character.series },
           ]);
           this.marvelUrls.set(character.urls);
+          this.marvelThumbnail.set(character.thumbnail);
         }
       }),
       tap(() => console.log(this.character()))
@@ -71,5 +73,9 @@ export class CharacterComponent {
     }
 
     return linkText;
+  }
+
+  buildThumbnailPath(thumbnail: MarvelThumbnail | undefined): string {
+    return (thumbnail) ? `${thumbnail.path}/landscape_incredible.${thumbnail.extension}` : '';
   }
 }

@@ -2,8 +2,9 @@ import { Component, Input } from '@angular/core';
 
 export interface ColumnDefinition {
   attr: string;
-  label: string;
+  label?: string;
   target?: (model: any) => string;
+  imgSrc?: (model: any) => string;
 }
 
 @Component({

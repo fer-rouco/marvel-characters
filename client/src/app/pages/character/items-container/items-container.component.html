@@ -1,6 +1,7 @@
 <panel [title]="title">
-    
-    @for (item of container?.items; track item.resourceURI) {
-        <item [item]="item" ></item>
-    }
+    <ul class="items--padding">
+        @for (item of container?.items; track item.resourceURI) {
+            <li><item [item]="item" ></item></li>
+        }
+    </ul>
 </panel>

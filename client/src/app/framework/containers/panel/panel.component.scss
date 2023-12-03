@@ -9,14 +9,9 @@
   background-color: #eeeeee;
 }
 
-.panel-margin {
-  margin: 1rem;
-}
-
 .panel-container {
   @extend .panel-border;
   @extend .panel-background-color;
-  @extend .panel-margin;
 
   &__title {
     @extend .panel-border;
@@ -46,6 +41,6 @@
 
   &__content {
     @extend .panel-background-color;
-    @extend .panel-margin;
+    margin: 1rem;
   }
 }

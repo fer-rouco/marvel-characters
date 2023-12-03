@@ -2,6 +2,8 @@
 
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
   /* Scrollbar */
   
@@ -117,6 +119,18 @@
     border-collapse: collapse;
   }
   
+  /* Estilo para filas */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /* Estilo para columnas */
+  .col {
+    flex: 1;
+    padding: 10px;
+  }
+
   @media (min-width: 1201px) {
     * {
       font-size: 20px;

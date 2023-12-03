@@ -9,7 +9,10 @@
     <tr>
       @for (columnDefinition of columnDefinitions; track columnDefinition.attr) {
         <td class="custom-table__cell">
-          @if (columnDefinition.target) {
+          @if (columnDefinition.imgSrc) {
+            <img [src]="columnDefinition.imgSrc(rowObject)" alt="Loading..."/>
+          }
+          @else if (columnDefinition.target) {
             <a class="link" [href]="columnDefinition.target(rowObject)" >{{rowObject[columnDefinition.attr]}}</a>
           }
           @else {
