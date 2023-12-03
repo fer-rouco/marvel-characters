@@ -13,6 +13,8 @@
   @extend .panel-border;
   @extend .panel-background-color;
 
+  height: 100%;
+
   &__title {
     @extend .panel-border;
     border: none;

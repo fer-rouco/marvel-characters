@@ -2,14 +2,16 @@
     <panel [title]="title()">
         <div class="row">
             @if (this.marvelThumbnail()) {
-                <div class="col">
+                <div class="col center">
                     <img [src]="buildThumbnailPath(this.marvelThumbnail())" alt="Loading..."/>
                 </div>
             }
     
             @if (this.character()?.description) {
-                <div class="col">
-                    <p>{{this.character()?.description}}</p>
+                <div class="col section--min-width">
+                    <panel title="Description">
+                        <p>{{this.character()?.description}}</p>
+                    </panel>
                 </div>
             }
         </div>
@@ -17,7 +19,7 @@
         <div class="row">
             @for (itemsContainerItem of itemsContainer(); track itemsContainerItem.container.collectionURI) {
                 @if (itemsContainerItem.container.items && itemsContainerItem.container.items.length > 0) {
-                    <div class="col items-container--width">
+                    <div class="col section--min-width">
                         @defer (on viewport) {
                             <items-container [container]="itemsContainerItem.container" [title]="itemsContainerItem.title"></items-container>
                         }
