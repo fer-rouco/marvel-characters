@@ -1,0 +1,35 @@
+<panel class="character" [title]="title()">
+    @if (this.character()?.description) {
+        <p>{{this.character()?.description}}</p>
+    }
+
+    @for (itemsContainerItem of itemsContainer(); track itemsContainerItem.container.collectionURI) {
+        @defer (on viewport) {
+            <items-container [container]="itemsContainerItem.container" [title]="itemsContainerItem.title"></items-container>
+        }
+        @placeholder {
+            <p>Marvel item container</p>
+        }
+        @loading {
+            <img src="assets/images/loading.gif" alt="Loading..."/>
+        }
+        @error {
+            <p>An loading error occured</p>
+        }
+    }
+
+    @for (marvelUrl of marvelUrls(); track marvelUrl.url) {
+        @defer (on viewport) {
+            <a class="link" target='_blank' [href]="marvelUrl.url">{{mapTypeToLinkText(marvelUrl.type)}}</a>
+        }
+        @placeholder {
+            <p>Marvel item container</p>
+        }
+        @loading {
+            <img src="assets/images/loading.gif" alt="Loading..."/>
+        }
+        @error {
+            <p>An loading error occured</p>
+        }
+    }
+</panel>

@@ -1,0 +1,27 @@
+<table class="custom-table flex" [ngClass]="{ 'flex': !rowObjects || rowObjects.length === 0 }">
+  <tr>
+    @for (columnDefinition of columnDefinitions; track columnDefinition.attr) {
+      <th class="custom-table__header">{{columnDefinition.label}}</th>
+    }
+  </tr>
+  
+  @for (rowObject of rowObjects; track rowObject) {
+    <tr>
+      @for (columnDefinition of columnDefinitions; track columnDefinition.attr) {
+        <td class="custom-table__cell">
+          @if (columnDefinition.target) {
+            <a class="link" [href]="columnDefinition.target(rowObject)" >{{rowObject[columnDefinition.attr]}}</a>
+          }
+          @else {
+            {{rowObject[columnDefinition.attr]}}
+          }
+        </td>
+      }
+    </tr>
+  }
+  @empty {
+    <tr>
+      <span class="custom-table__no-items-found">No items found.</span>
+    </tr>
+  }
+</table>

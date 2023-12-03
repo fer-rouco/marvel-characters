@@ -1,0 +1,6 @@
+<panel [title]="title">
+    
+    @for (item of container?.items; track item.resourceURI) {
+        <item [item]="item" ></item>
+    }
+</panel>
