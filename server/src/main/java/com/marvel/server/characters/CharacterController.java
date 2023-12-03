@@ -14,15 +14,15 @@ import com.marvel.server.characters.dtos.MarvelApiResponseDTO;
 @RequestMapping("/characters")
 public class CharacterController {
     @Autowired
-    private CharacterService characterService;
+    private CharacterService service;
 
     @GetMapping()
-    public ResponseEntity<MarvelApiResponseDTO> getCharacters() {
-        return new ResponseEntity<MarvelApiResponseDTO>(characterService.getAllCharacters(), HttpStatus.OK);
+    public ResponseEntity<MarvelApiResponseDTO> findAll() {
+        return new ResponseEntity<MarvelApiResponseDTO>(service.findAll(), HttpStatus.OK);
     }
     
     @GetMapping(path = "/{characterId}")
-    public ResponseEntity<MarvelApiResponseDTO> getCharacters(@PathVariable("characterId") Integer characterId) {
-        return new ResponseEntity<MarvelApiResponseDTO>(characterService.getCharacterById(characterId), HttpStatus.OK);
+    public ResponseEntity<MarvelApiResponseDTO> findById(@PathVariable("characterId") Integer characterId) {
+        return new ResponseEntity<MarvelApiResponseDTO>(service.findById(characterId), HttpStatus.OK);
     }
 }

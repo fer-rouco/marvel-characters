@@ -4,20 +4,14 @@ import org.springframework.context.ApplicationEvent;
 
 public class CharacterEvent extends ApplicationEvent {
 
-    private final String methodName;
-    private final Object[] methodParams;
+    private final String path;
 
-    public CharacterEvent(Object source, String methodName, Object[] methodParams) {
+    public CharacterEvent(Object source, String path) {
         super(source);
-        this.methodName = methodName;
-        this.methodParams = methodParams;
+        this.path = path;
     }
 
-    public String getMethodName() {
-        return methodName;
-    }
-
-    public Object[] getMethodParams() {
-        return methodParams;
+    public String getPath() {
+        return path;
     }
 }

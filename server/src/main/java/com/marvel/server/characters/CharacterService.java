@@ -16,17 +16,17 @@ public class CharacterService {
     @Autowired
     CharacterEventPublisher eventPublisher;
 
-    public void publishEvent(String methodName, Object[] ... parameters) {
-        this.eventPublisher.publishCharacterEvent(methodName, parameters);
+    public void publishEvent(String path) {
+        this.eventPublisher.publishCharacterEvent(path);
     }
 
-    public MarvelApiResponseDTO getAllCharacters() {
-        this.publishEvent("getAllCharacters");
+    public MarvelApiResponseDTO findAll() {
+        this.publishEvent("/characters");
         return new Gson().fromJson(apiClient.getCharacters(), MarvelApiResponseDTO.class);
     }
 
-    public MarvelApiResponseDTO getCharacterById(int characterId) {
-        this.publishEvent("getCharacterById", new Object[]{ characterId });
+    public MarvelApiResponseDTO findById(int characterId) {
+        this.publishEvent("/characters/" + characterId);
         return new Gson().fromJson(apiClient.getCharacterById(characterId), MarvelApiResponseDTO.class);
     }
 
