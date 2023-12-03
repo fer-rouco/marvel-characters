@@ -1,4 +1,4 @@
-package com.marvel.server.characters;
+package com.marvel.server.characters.event;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;

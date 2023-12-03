@@ -1,4 +1,4 @@
-package com.marvel.server.characters;
+package com.marvel.server.characters.event;
 
 import java.util.Arrays;
 
