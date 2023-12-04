@@ -38,8 +38,17 @@ export class CharacterComponent {
     this.route.paramMap.pipe(
       map((parameters: ParamMap) => parseInt(parameters.get('id') || '')),
       mergeMap((id: number) => this.charactersService.getById(id)),
-      tap((response: MarvelApiResponse) => this.character.set(response?.data?.results[0])),
-      tap(() => this.title.set(`Character ${this.character()?.name}`) ),
+      tap((response: MarvelApiResponse) => {
+        this.character.set(response?.data?.results[0]);
+
+        if (response.code === 404) {
+          this.title.set(`${response?.status}`);
+        }
+        else {
+          this.title.set(`Character ${this.character()?.name}`);
+        }
+
+      } ),
       tap(() => {
         const character: MarvelCharacter = this.character() as MarvelCharacter;
         if (character) {
