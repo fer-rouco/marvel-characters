@@ -26,22 +26,13 @@ public class SessionController {
   @Autowired
   UserService userService;
 
-  @GetMapping()
-  public ResponseEntity<SessionInfoDTO> getCurrentSessionInfo() {
-    SessionInfoDTO sessionInfo = SessionInfoDTO.getInstance();
-    return ResponseEntity.status(HttpStatus.OK).body(sessionInfo);
-  }
-
   @GetMapping(path = "/login")
   public ResponseEntity<SessionInfoDTO> login(@RequestParam(User.Fields.userName) String userOrMail, @RequestParam(User.Fields.password) String password) {
     ResponseEntity<SessionInfoDTO> response = null;
-    SessionInfoDTO sessionInfo = null;
 
     UserDTO user = (!userOrMail.contains("@")) ? userService.findByUserName(userOrMail) : userService.findByMail(userOrMail);
     try {
-      sessionInfo = loginService.doLogin(user, password);
-      sessionInfo.generateNewToken();
-      response = ResponseEntity.status(HttpStatus.OK).body(sessionInfo);
+      response = ResponseEntity.status(HttpStatus.OK).body(loginService.doLogin(user, password));
     }
     catch (UserNotFoundResponseException responseException) {
       response = ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
@@ -51,24 +42,6 @@ public class SessionController {
     }
 
     return response;
-  }
-
-  @PostMapping(path = "/logout")
-  public ResponseEntity<ResponseEntity<?>> logout() {
-    ResponseEntity<ResponseEntity<?>> response = null;
-
-    SessionInfoDTO sessionInfo = SessionInfoDTO.getInstance();
-    sessionInfo.setToken(null);
-    sessionInfo.setUserName(null);
-    response = ResponseEntity.status(HttpStatus.OK).body(null);
-
-    return response;
-  }
-
-  @PostMapping(path = "/validate", consumes=MediaType.TEXT_PLAIN_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity<SessionInfoDTO> validate(@RequestBody String token) {
-    SessionInfoDTO sessionInfo = SessionInfoDTO.getInstance();
-    return (sessionInfo.getToken() != null && sessionInfo.getToken().equals(token)) ? ResponseEntity.status(HttpStatus.OK).body(sessionInfo) : ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
   }
 
 }

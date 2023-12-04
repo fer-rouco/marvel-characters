@@ -12,17 +12,9 @@ import lombok.experimental.FieldNameConstants;
 @NoArgsConstructor
 @FieldNameConstants
 public class SessionInfoDTO {
-  private static SessionInfoDTO instance;
   private Long id;
   private String token;
   private String userName;
-
-  public static SessionInfoDTO getInstance() {
-    if (instance == null) {
-      instance = new SessionInfoDTO();
-    }
-    return instance;
-  }
 
   public void generateNewToken() {
     this.setToken(StringUtils.generateNewToken());

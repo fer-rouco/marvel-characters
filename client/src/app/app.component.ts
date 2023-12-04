@@ -17,9 +17,8 @@ export class AppComponent {
   constructor(protected sessionService: SessionService, @Inject(Router) protected router: Router) {}
 
   doLogout(): void {
-    this.sessionService.logOut().subscribe(() => {
-      this.router.navigateByUrl('/login');
-    });
+    this.sessionService.logOut();
+    this.router.navigateByUrl('/login');
   }
 
   isAuthenticatedUser(): boolean {

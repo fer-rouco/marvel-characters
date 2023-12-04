@@ -21,10 +21,6 @@ export class SessionService extends BaseService {
     return "session";
   }
   
-  getSessionInfo(): Observable<Session> {
-    return this.get<Session>('') as Observable<Session>;
-  }
-
   logIn(user: string, password: string): Observable<Session> {
     const shaObj = new jsSHA('SHA-256', 'TEXT', { encoding: 'UTF8' });
     shaObj.update(password);
@@ -41,25 +37,8 @@ export class SessionService extends BaseService {
     );
   }
 
-  logOut(): Observable<null> {
-    return this.post(
-      '/logout'
-    ).pipe(
-      tap((session) => {
-        this.sessionStorageService.removeItem(SessionService.STORAGE_SESSION_IDENTIFIER);
-        return session;
-      }),
-      map(() => null)
-    );
-  }
-
-  validateSession(token: string): Observable<Session> {
-    const headers = {
-      'Content-Type': 'text/plain'
-    }
-    return this.post<Session>(
-      '/validate', token, { headers: headers }
-    ) as Observable<Session>;
+  logOut(): void {
+    this.sessionStorageService.removeItem(SessionService.STORAGE_SESSION_IDENTIFIER);
   }
 
   getCurrentSession(): Session | null {

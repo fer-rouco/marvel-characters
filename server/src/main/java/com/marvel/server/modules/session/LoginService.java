@@ -19,9 +19,10 @@ public class LoginService {
       throw new InvalidPasswordResponseException();
     }
 
-    SessionInfoDTO sessionInfo = SessionInfoDTO.getInstance();
+    SessionInfoDTO sessionInfo = new SessionInfoDTO();
     sessionInfo.setUserName(user.getUserName()); 
-
+    sessionInfo.generateNewToken();
+    
     return sessionInfo;
   }
   
