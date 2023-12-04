@@ -18,6 +18,6 @@ public class CharacterEventListener {
 
         System.out.println("Service method called event received! Method: " + path);
 
-        serviceLogService.log(event.getPath());
+        serviceLogService.log(event.getUserName(), event.getPath());
     }
 }

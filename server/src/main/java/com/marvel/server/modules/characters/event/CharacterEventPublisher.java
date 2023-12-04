@@ -12,8 +12,8 @@ public class CharacterEventPublisher {
         this.eventPublisher = eventPublisher;
     }
 
-    public void publishCharacterEvent(String path) {
-        CharacterEvent event = new CharacterEvent(this, path);
+    public void publishCharacterEvent(String userName, String path) {
+        CharacterEvent event = new CharacterEvent(this, userName, path);
         eventPublisher.publishEvent(event);
     }
 }

@@ -23,7 +23,7 @@ public class ServiceLog {
     private String path;
 
     @Column
-    private Long userName;
+    private String userName;
 
     @Column
     private LocalDateTime dateTime;

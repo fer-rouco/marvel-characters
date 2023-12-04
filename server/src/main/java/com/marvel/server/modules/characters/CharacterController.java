@@ -16,13 +16,13 @@ public class CharacterController {
     @Autowired
     private CharacterService service;
 
-    @GetMapping()
-    public ResponseEntity<MarvelApiResponseDTO> findAll() {
-        return new ResponseEntity<MarvelApiResponseDTO>(service.findAll(), HttpStatus.OK);
+    @GetMapping("/{userName}")
+    public ResponseEntity<MarvelApiResponseDTO> findAll(@PathVariable("userName") String userName) {
+        return new ResponseEntity<MarvelApiResponseDTO>(service.findAll(userName), HttpStatus.OK);
     }
     
-    @GetMapping(path = "/{characterId}")
-    public ResponseEntity<MarvelApiResponseDTO> findById(@PathVariable("characterId") Integer characterId) {
-        return new ResponseEntity<MarvelApiResponseDTO>(service.findById(characterId), HttpStatus.OK);
+    @GetMapping(path = "/{userName}/{characterId}")
+    public ResponseEntity<MarvelApiResponseDTO> findById(@PathVariable("userName") String userName, @PathVariable("characterId") Integer characterId) {
+        return new ResponseEntity<MarvelApiResponseDTO>(service.findById(userName, characterId), HttpStatus.OK);
     }
 }

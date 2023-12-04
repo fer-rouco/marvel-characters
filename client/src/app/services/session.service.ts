@@ -45,6 +45,10 @@ export class SessionService extends BaseService {
     return this.sessionStorageService.getItem<Session>(SessionService.STORAGE_SESSION_IDENTIFIER);
   }
 
+  getCurrentUserName(): string {
+    return this.getCurrentSession()?.userName || '';
+  }
+
   isAuthenticatedUser(): boolean {
     let session: Session | null = this.getCurrentSession();
     return Boolean(session && session.token);
