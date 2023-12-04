@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.marvel.api.client.MarvelApiClient;
-import com.marvel.server.modules.characters.dtos.MarvelApiResponseDTO;
+import com.marvel.api.client.dtos.MarvelApiResponseDTO;
 import com.marvel.server.modules.characters.event.CharacterEventPublisher;
 
 @Service

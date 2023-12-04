@@ -1,4 +1,4 @@
-package com.marvel.server.modules.characters.dtos;
+package com.marvel.api.client.dtos;
 import lombok.Data;
 
 @Data

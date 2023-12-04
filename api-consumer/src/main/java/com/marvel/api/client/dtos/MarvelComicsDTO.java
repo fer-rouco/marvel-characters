@@ -1,10 +1,10 @@
-package com.marvel.server.modules.characters.dtos;
+package com.marvel.api.client.dtos;
 
 import lombok.Data;
 import java.util.List;
 
 @Data
-class MarvelEventsDTO {
+class MarvelComicsDTO {
     private int available;
     private int returned;
     private String collectionURI;

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.marvel.server.modules.characters.dtos.MarvelApiResponseDTO;
+import com.marvel.api.client.dtos.MarvelApiResponseDTO;
 
 @RestController
 @RequestMapping("/characters")
