@@ -3,7 +3,7 @@
         <h1 class="title" >Marvel Characters</h1>
         @if (isAuthenticatedUser()) {
             <section class="user-section">
-                <p class="user-section__logged-user">User: <strong>{{userName()}}</strong></p>
+                <p class="user-section__logged-user">User: <strong>{{getCurrentUser()}}</strong></p>
                 <custom-button label="Logout" title="Logout" (click)="doLogout()">Logout</custom-button>
             </section>
         }

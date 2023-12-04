@@ -1,4 +1,4 @@
-import { Component, Inject, WritableSignal, signal, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterOutlet } from '@angular/router';
 import { FrameworkModule } from './framework/framework.module';
@@ -12,13 +12,9 @@ import { SessionService } from './services/session.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
-  public userName: WritableSignal<string> = signal('');
+export class AppComponent {
 
   constructor(protected sessionService: SessionService, @Inject(Router) protected router: Router) {}
-  ngOnInit(): void {
-    this.userName.set(this.getCurrentUser());
-  }
 
   doLogout(): void {
     this.sessionService.logOut();
