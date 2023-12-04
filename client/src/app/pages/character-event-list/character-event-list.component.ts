@@ -14,7 +14,7 @@ interface DetailedEventList {
 }
 
 @Component({
-  selector: 'app-character-event-list',
+  selector: 'character-event-list',
   standalone: true,
   imports: [FrameworkModule, HttpClientModule],
   templateUrl: './character-event-list.component.html',

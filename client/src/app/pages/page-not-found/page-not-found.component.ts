@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FrameworkModule } from '../../framework/framework.module';
 
 @Component({
-  selector: 'app-page-not-found',
+  selector: 'page-not-found',
   standalone: true,
   imports: [FrameworkModule],
   templateUrl: './page-not-found.component.html',

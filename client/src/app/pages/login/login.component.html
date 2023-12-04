@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col center">
+        <div class="login">
+            <panel title="Login">
+                <div class="row">
+                    <div class="col">
+                        <text-field [model]="model()" attr="user" label="User" ></text-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <password-field [model]="model()" attr="password" label="Password" ></password-field>
+                    </div>               
+                </div>
+                <div class="row">
+                    <div class="col center">
+                        <span class="error-message--color">{{errorMessage()}}</span>
+                    </div>               
+                </div>
+                <div class="row">
+                    <div class="col center">
+                        <custom-button label="Login" title="Login" (click)="doLogin()">Login</custom-button>
+                    </div>               
+                </div>
+            </panel>
+        </div>
+    </div>
+</div>

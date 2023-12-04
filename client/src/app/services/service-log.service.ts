@@ -13,7 +13,7 @@ export class ServiceLogService extends BaseService {
   }
 
   getAll(): Observable<EventList[]> {
-    return this.get<EventList[]>('');
+    return this.get<EventList[]>('') as Observable<EventList[]>;
   }
 
 }

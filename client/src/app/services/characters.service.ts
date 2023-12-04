@@ -14,11 +14,11 @@ export class CharactersService extends BaseService {
   }
 
   getAll(): Observable<MarvelApiResponse> {
-    return this.get<MarvelApiResponse>('');
+    return this.get<MarvelApiResponse>('') as Observable<MarvelApiResponse>;
   }
 
   getById(id: number): Observable<MarvelApiResponse> {
-    return this.get<MarvelApiResponse>(`/${id}`);
+    return this.get<MarvelApiResponse>(`/${id}`) as Observable<MarvelApiResponse>;
   }
 
 }
