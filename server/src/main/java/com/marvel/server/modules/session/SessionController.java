@@ -53,7 +53,7 @@ public class SessionController {
     return response;
   }
 
-  @GetMapping(path = "/logout")
+  @PostMapping(path = "/logout")
   public ResponseEntity<ResponseEntity<?>> logout() {
     ResponseEntity<ResponseEntity<?>> response = null;
 

@@ -20,7 +20,7 @@ export abstract class BaseService {
     return this.http.get<T>(this.buildUrl(urlPrefix), options);
   }
 
-  post<T>(urlPrefix: string, data: any, options?: any): Observable<T | HttpEvent<T>> {
+  post<T>(urlPrefix: string, data?: any, options?: any): Observable<T | HttpEvent<T>> {
     return this.http.post<T>(this.buildUrl(urlPrefix), data, options);
   }
 }

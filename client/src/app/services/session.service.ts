@@ -42,7 +42,7 @@ export class SessionService extends BaseService {
   }
 
   logOut(): Observable<null> {
-    return this.get(
+    return this.post(
       '/logout'
     ).pipe(
       tap((session) => {
