@@ -52,8 +52,7 @@ export class CharacterComponent {
           this.marvelUrls.set(character.urls);
           this.marvelThumbnail.set(character.thumbnail);
         }
-      }),
-      tap(() => console.log(this.character()))
+      })
     ).subscribe();
   }
 

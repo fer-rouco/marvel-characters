@@ -1,27 +1,48 @@
-<div class="character">
-    <panel [title]="title()">
-        <div class="row">
-            @if (this.marvelThumbnail()) {
-                <div class="col center">
-                    <img [src]="buildThumbnailPath(this.marvelThumbnail())" alt="Loading..."/>
-                </div>
-            }
-    
-            @if (this.character()?.description) {
-                <div class="col section--min-width">
-                    <panel title="Description">
-                        <p>{{this.character()?.description}}</p>
-                    </panel>
-                </div>
-            }
-        </div>
-    
-        <div class="row">
-            @for (itemsContainerItem of itemsContainer(); track itemsContainerItem.container.collectionURI) {
-                @if (itemsContainerItem.container.items && itemsContainerItem.container.items.length > 0) {
+<div class="row">
+    <div class="col">
+        <panel [title]="title()" [actions]="[{ icon: 'list.svg', to: '/character-list' }]">
+            <div class="row">
+                @if (this.marvelThumbnail()) {
+                    <div class="col center">
+                        <img [src]="buildThumbnailPath(this.marvelThumbnail())" alt="Loading..."/>
+                    </div>
+                }
+        
+                @if (this.character()?.description) {
                     <div class="col section--min-width">
+                        <panel title="Description">
+                            <p>{{this.character()?.description}}</p>
+                        </panel>
+                    </div>
+                }
+            </div>
+        
+            <div class="row">
+                @for (itemsContainerItem of itemsContainer(); track itemsContainerItem.container.collectionURI) {
+                    @if (itemsContainerItem.container.items && itemsContainerItem.container.items.length > 0) {
+                        <div class="col section--min-width">
+                            @defer (on viewport) {
+                                <items-container [container]="itemsContainerItem.container" [title]="itemsContainerItem.title"></items-container>
+                            }
+                            @placeholder {
+                                <p>Marvel item container</p>
+                            }
+                            @loading {
+                                <img src="assets/images/loading.gif" alt="Loading..."/>
+                            }
+                            @error {
+                                <p>An loading error occured</p>
+                            }
+                        </div>
+                    }
+                }
+            </div>
+        
+            <div class="row">
+                <div class="col">
+                    @for (marvelUrl of marvelUrls(); track marvelUrl.url) {
                         @defer (on viewport) {
-                            <items-container [container]="itemsContainerItem.container" [title]="itemsContainerItem.title"></items-container>
+                            <a class="link" target='_blank' [href]="marvelUrl.url">{{mapTypeToLinkText(marvelUrl.type)}}</a>
                         }
                         @placeholder {
                             <p>Marvel item container</p>
@@ -32,28 +53,9 @@
                         @error {
                             <p>An loading error occured</p>
                         }
-                    </div>
-                }
-            }
-        </div>
-    
-        <div class="row">
-            <div class="col">
-                @for (marvelUrl of marvelUrls(); track marvelUrl.url) {
-                    @defer (on viewport) {
-                        <a class="link" target='_blank' [href]="marvelUrl.url">{{mapTypeToLinkText(marvelUrl.type)}}</a>
                     }
-                    @placeholder {
-                        <p>Marvel item container</p>
-                    }
-                    @loading {
-                        <img src="assets/images/loading.gif" alt="Loading..."/>
-                    }
-                    @error {
-                        <p>An loading error occured</p>
-                    }
-                }
+                </div>
             </div>
-        </div>
-    </panel>
+        </panel>
+    </div>
 </div>

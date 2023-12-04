@@ -8,6 +8,10 @@ import lombok.Data;
 public class ServiceLogDTO {
     private Long id;
     private String path;
-    private Long user;
+    private Long userName;
     private LocalDateTime dateTime;
+
+    public String getDateTime() {
+        return dateTime.toString();
+    }
 }

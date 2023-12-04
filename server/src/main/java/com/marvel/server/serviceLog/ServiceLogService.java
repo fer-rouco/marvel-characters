@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ServiceLogService {
@@ -24,8 +27,12 @@ public class ServiceLogService {
         repository.save(serviceLog);
     }
     
-    public ServiceLogDTO findAll() {
-        return modelMapper.map(repository.findAll(), ServiceLogDTO.class);
+    public List<ServiceLogDTO> findAll() {
+        Iterable<ServiceLog> entities = repository.findAll();
+        List<ServiceLogDTO> mappingDTOs = ((Collection<ServiceLog>) entities).stream()
+            .map(entity -> modelMapper.map(entity, ServiceLogDTO.class))
+            .collect(Collectors.toList());
+        return mappingDTOs;
     }
 
     

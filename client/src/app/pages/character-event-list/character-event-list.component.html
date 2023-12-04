@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col">
+        <panel title="Event List" [actions]="[{ icon: 'list.svg', to: '/character-list' }]" >
+            <custom-table [columnDefinitions]="columnDefinitions" [rowObjects]="eventList()"></custom-table>
+        </panel>
+    </div>
+</div>
+

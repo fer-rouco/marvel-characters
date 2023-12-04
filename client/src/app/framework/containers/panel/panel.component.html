@@ -3,13 +3,12 @@
     <div class="panel-container__title" >
       <h3>{{title}}</h3>
       <div class="actions">
-        <custom-button
-          *ngFor="let action of actions"
-          (click)="onActionClick(action)"
-          >
-          <i *ngIf="action.icon" ><img class="icon" [id]="action.to.replace('/', '')" src="../../../../assets/icons/{{action.icon}}" alt="{{action.to}}"></i>
-          {{action.label}}
-        </custom-button>
+        @for (action of actions; track action.to ) {
+          <custom-button (click)="onActionClick(action)" [title]="actionButtonTitle(action.to)">
+            <i *ngIf="action.icon" ><img class="icon" [id]="action.to.replace('/', '')" src="../../../../assets/icons/{{action.icon}}" alt="{{action.to}}"></i>
+            {{action.label}}
+          </custom-button>
+        }
       </div>
     </div>
   </div>

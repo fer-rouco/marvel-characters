@@ -1,5 +1,7 @@
-<div class="character-list">
-    <panel title="List of Characters">
-        <custom-table [columnDefinitions]="columnDefinitions" [rowObjects]="characters()"></custom-table>
-    </panel>
+<div class="row">
+    <div class="col">
+        <panel title="List of Characters" [actions]="[{ icon: 'clock.svg', to: '/character-event-list' }]">
+            <custom-table [columnDefinitions]="columnDefinitions" [rowObjects]="characters()"></custom-table>
+        </panel>
+    </div>
 </div>

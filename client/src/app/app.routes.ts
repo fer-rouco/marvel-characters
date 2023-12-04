@@ -11,5 +11,9 @@ export const routes: Routes = [
       path: 'character/:id',
       loadComponent: () => import('./pages/character/character.component').then((m) => m.CharacterComponent)
     },
+    {
+      path: 'character-event-list',
+      loadComponent: () => import('./pages/character-event-list/character-event-list.component').then((m) => m.CharacterEventListComponent)
+    },
     { path: '**', component: PageNotFoundComponent }
   ];

@@ -1,5 +1,7 @@
 package com.marvel.server.serviceLog;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +17,7 @@ public class ServiceLogController {
 
 
     @GetMapping()
-    public ResponseEntity<ServiceLogDTO> findAll() {
-        return new ResponseEntity<ServiceLogDTO>(service.findAll(), HttpStatus.OK);
+    public ResponseEntity<List<ServiceLogDTO>> findAll() {
+        return new ResponseEntity<List<ServiceLogDTO>>(service.findAll(), HttpStatus.OK);
     }
 }

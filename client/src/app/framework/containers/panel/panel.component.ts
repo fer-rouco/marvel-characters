@@ -21,4 +21,8 @@ export class PanelComponent {
   public onActionClick(action: Action) {
     this.router.navigateByUrl(action.to);
   }
+
+  public actionButtonTitle(to: string): string {
+    return `Navigate to ${to.replace('/', '')}`;
+  }
 }

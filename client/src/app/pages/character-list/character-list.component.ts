@@ -27,7 +27,6 @@ export class CharacterListComponent implements OnInit {
     ];
 
     this.charactersService.getAll().subscribe((response: MarvelApiResponse) => {
-      console.log(response?.data?.results);
       this.characters.set(response?.data?.results);
     });
   }
