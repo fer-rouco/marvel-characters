@@ -1,8 +1,16 @@
-.flex {
+.header {
     display: flex;
     justify-content: space-between;
 
     .title {
         margin-left: 1rem;
+    }
+
+    .user-section {
+        display: flex;
+        flex-wrap: nowrap;
+        &__logged-user {
+            padding-top: .5rem;
+        }
     }
 }

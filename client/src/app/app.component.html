@@ -1,8 +1,11 @@
 <header>
-    <div class="flex">
+    <div class="header">
         <h1 class="title" >Marvel Characters</h1>
         @if (isAuthenticatedUser()) {
-            <custom-button label="Logout" title="Logout" (click)="doLogout()">Logout</custom-button>
+            <section class="user-section">
+                <p class="user-section__logged-user">User: <strong>{{userName()}}</strong></p>
+                <custom-button label="Logout" title="Logout" (click)="doLogout()">Logout</custom-button>
+            </section>
         }
     </div>
 </header>
