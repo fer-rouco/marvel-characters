@@ -22,4 +22,8 @@ export class AppComponent {
     });
   }
 
+  isAuthenticatedUser(): boolean {
+    return this.sessionService.isAuthenticatedUser();
+  }
+
 }
