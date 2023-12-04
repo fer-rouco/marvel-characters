@@ -13,11 +13,6 @@ public class CharacterEventListener {
     
     @EventListener
     public void handleServiceMethodCalledEvent(CharacterEvent event) {
-        // Handle the event
-        String path = event.getPath();
-
-        System.out.println("Service method called event received! Method: " + path);
-
         serviceLogService.log(event.getUserName(), event.getPath());
     }
 }
