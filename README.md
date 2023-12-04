@@ -20,6 +20,6 @@ Client Code
 
 Server Code
 ------ ----
-[<img src='https://www.java.com/_cache_114a/_themesdelivery/JCOM_Base_Theme/assets/img/Java-horz-wht.svg' alt='HTML' width='50px'/>](https://www.java.com/es/)
+[<img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Ffree-png-ifyun&psig=AOvVaw1bZxESQrKNRspBM4ZsL8CN&ust=1701801572298000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCMCN1Im39oIDFQAAAAAdAAAAABAE' alt='HTML' width='50px'/>](https://www.java.com/es/)
 [<img src='https://spring.io/icons/icon-144x144.png?v=96334d577af708644f6f0495dd1c7bc8' alt='HTML' width='50px'/>](https://spring.io/projects/spring-boot)
 [<img src='https://www.h2database.com/html/images/h2-logo-2.png' alt='HTML' width='50px'/>](https://www.h2database.com/html/main.html)
