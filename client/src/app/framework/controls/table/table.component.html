@@ -13,7 +13,7 @@
             <img [src]="columnDefinition.imgSrc(rowObject)" alt="Loading..."/>
           }
           @else if (columnDefinition.target) {
-            <a class="link" [href]="columnDefinition.target(rowObject)" >{{rowObject[columnDefinition.attr]}}</a>
+            <a class="link" [routerLink]="columnDefinition.target(rowObject)" >{{rowObject[columnDefinition.attr]}}</a>
           }
           @else {
             {{rowObject[columnDefinition.attr]}}
