@@ -8,7 +8,7 @@
     "build": "ng build --base-href /marvel-characters/ --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "predeploy": "npm run build",
+    "predeploy": "pnpm run build",
     "clean": "rm -rf ./dist",
     "deploy": "gh-pages -d dist/browser"
   },

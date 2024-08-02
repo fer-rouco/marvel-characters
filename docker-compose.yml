@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  client:
+    build: ./client
+    ports:
+      - "4200:4200"  # Ajusta el puerto si es necesario
+    depends_on:
+      - server
+  server:
+    build: ./server
+    ports:
+      - "8888:8888"  # Ajusta el puerto si es necesario
