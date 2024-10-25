@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.marvel.api.client.MarvelApiClient;
+import com.marvel.api.client.MarvelApiUrlBuilder;
 import com.marvel.api.client.dtos.MarvelApiResponseDTO;
 import com.marvel.server.modules.characters.event.CharacterEventPublisher;
 
@@ -27,7 +28,13 @@ public class CharacterService {
 
     public MarvelApiResponseDTO findById(String userName, int characterId) {
         this.publishEvent(userName, "/characters/" + characterId);
-        return new Gson().fromJson(apiClient.getCharacterById(characterId), MarvelApiResponseDTO.class);
+        MarvelApiResponseDTO marvelApiResponseDTO = new Gson().fromJson(apiClient.getCharacterById(characterId), MarvelApiResponseDTO.class);
+        marvelApiResponseDTO.getData().getResults().forEach(result -> {
+            MarvelApiUrlBuilder.buildUrlFromItems(result.getComics().getItems());
+            MarvelApiUrlBuilder.buildUrlFromItems(result.getSeries().getItems());
+            MarvelApiUrlBuilder.buildUrlFromItems(result.getStories().getItems());
+        });
+        return marvelApiResponseDTO;
     }
 
 }

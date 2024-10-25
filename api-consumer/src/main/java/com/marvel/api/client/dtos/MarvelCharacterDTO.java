@@ -1,12 +1,12 @@
 package com.marvel.api.client.dtos;
-import lombok.Data;
-
 import java.util.Date;
 import java.util.List;
 
+import lombok.Data;
+
 
 @Data
-class MarvelCharacterDTO {
+public class MarvelCharacterDTO {
     private int id;
     private String name;
     private String description;

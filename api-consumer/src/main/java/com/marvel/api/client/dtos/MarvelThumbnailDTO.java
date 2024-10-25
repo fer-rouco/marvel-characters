@@ -3,7 +3,7 @@ package com.marvel.api.client.dtos;
 import lombok.Data;
 
 @Data
-class MarvelThumbnailDTO {
+public class MarvelThumbnailDTO {
     private String path;
     private String extension;
 }

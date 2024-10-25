@@ -3,7 +3,7 @@ package com.marvel.api.client.dtos;
 import lombok.Data;
 
 @Data
-class MarvelUrlDTO {
+public class MarvelUrlDTO {
     private String type;
     private String url;
 }

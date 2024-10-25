@@ -1,10 +1,11 @@
 package com.marvel.api.client.dtos;
 
-import lombok.Data;
 import java.util.List;
 
+import lombok.Data;
+
 @Data
-class MarvelComicsDTO {
+public class MarvelComicsDTO {
     private int available;
     private int returned;
     private String collectionURI;

@@ -1,10 +1,11 @@
 package com.marvel.api.client.dtos;
 
-import lombok.Data;
 import java.util.List;
 
+import lombok.Data;
+
 @Data
-class MarvelDataDTO {
+public class MarvelDataDTO {
     private int offset;
     private int limit;
     private int total;
