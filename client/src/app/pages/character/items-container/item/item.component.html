@@ -1,4 +1,6 @@
 @if (item) {
-    <p><strong>{{item.name}}</strong></p>
+    <a [href]="item.resourceURI">
+        <p><strong>{{item.name}}</strong></p>
+    </a>
 }
 
