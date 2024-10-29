@@ -38,7 +38,7 @@ public class MarvelApiUrlBuilder {
       return API_BASE_URL + path + buildUlrParamenters();
   }
 
-  public static void buildUrlFromItems(List<MarvelItemInterface> items) {
+  public static void buildUrlFromItems(List<? extends MarvelItemInterface> items) {
     items.forEach(item -> {
       item.setResourceURI(item.getResourceURI() + MarvelApiUrlBuilder.buildUlrParamenters());
     });
