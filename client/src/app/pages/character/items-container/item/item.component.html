@@ -1,6 +1,13 @@
 @if (item) {
-    <a [href]="item.resourceURI">
-        <p><strong>{{item.name}}</strong></p>
-    </a>
+    @if (isStory()) {
+        <span>
+            <p><strong>{{item.name}}</strong></p>
+        </span>
+    }
+    @else {
+        <a href="javascript:void(0)" (click)="fetchItemDataFromResourceURI()">
+            <p><strong>{{item.name}}</strong></p>
+        </a>
+    }
 }
 

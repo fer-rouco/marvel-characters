@@ -33,6 +33,7 @@ public class CharacterService {
             MarvelApiUrlBuilder.buildUrlFromItems(result.getComics().getItems());
             MarvelApiUrlBuilder.buildUrlFromItems(result.getSeries().getItems());
             MarvelApiUrlBuilder.buildUrlFromItems(result.getStories().getItems());
+            MarvelApiUrlBuilder.buildUrlFromItems(result.getEvents().getItems());
         });
         return marvelApiResponseDTO;
     }

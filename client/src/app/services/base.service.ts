@@ -1,7 +1,6 @@
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import type { Observable} from 'rxjs';
-import { environment } from '../../environments/environment';
+import type { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +10,11 @@ export abstract class BaseService {
   constructor(protected http: HttpClient) {}
 
   protected abstract getBaseUrl(): string;
+  
+  protected abstract getUrlPrefix(): string;
 
   private buildUrl(urlPrefix: string): string {
-    return `${environment.apiUrl}/${this.getBaseUrl()}${urlPrefix || ''}`;
+    return `${this.getUrlPrefix()}/${this.getBaseUrl()}${urlPrefix || ''}`;
   }
 
   get<T>(urlPrefix: string, options?: any): Observable<T | HttpEvent<T>> {

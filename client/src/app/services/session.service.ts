@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
-import { BaseService } from './base.service';
-import { Session } from '../model/session-interface';
-import { tap, type Observable, map} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { StorageManagerService } from './storage-manager.service';
+import { Injectable } from '@angular/core';
 import jsSHA from 'jssha';
+import { map, tap, type Observable } from 'rxjs';
+import { Session } from '../model/session-interface';
+import { BaseApiService } from './base-api.service';
+import { StorageManagerService } from './storage-manager.service';
 
 @Injectable({
   providedIn: 'any'
 })
-export class SessionService extends BaseService {
+export class SessionService extends BaseApiService {
 
   constructor(protected override http: HttpClient, private sessionStorageService: StorageManagerService) {
     super(http);
